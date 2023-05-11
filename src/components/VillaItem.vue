@@ -9,12 +9,12 @@ const showDetail = () => {
 </script>
 
 <template>
-  <div @click="showDetail">
-    <img :src="props.image" />
-    <div>
-      <span>Città: {{ props.location }}</span>
+  <div @click="showDetail" class="flex flex-col m-[1rem]">
+    <img width="200" :src="props.image" />
+    <div class="flex flex-col gap-1 text-center">
+      <span><b>Città:</b> {{ props.location }}</span>
       <span>
-        Prezzo:
+        <b>Prezzo:</b>
         {{
           Intl.NumberFormat("it-IT", {
             style: "currency",
@@ -23,11 +23,11 @@ const showDetail = () => {
         }}
       </span>
       <span>
-        Capacità:
+        <b>Capacità:</b>
         {{ props.capacity }}
       </span>
       <span>
-        Servizi:
+        <b>Servizi:</b>
         {{ props.facilities }}
       </span>
       <!-- <button>Prenota</button> -->

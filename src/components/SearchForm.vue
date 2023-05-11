@@ -106,7 +106,7 @@ const onSubmit = () => {
     <div class="flex justify-end w-[100%]">
       <button
         type="submit"
-        class="rounded-full bg-sky-700 text-white px-[1rem] py-[0.5rem] text-xl"
+        class="rounded-full bg-sky-700 text-white px-[1rem] pt-[0.25rem] pb-[0.5rem] text-xl"
       >
         Cerca
       </button>

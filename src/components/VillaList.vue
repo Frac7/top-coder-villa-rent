@@ -6,7 +6,7 @@ const props = defineProps<VillaListProps>();
 </script>
 
 <template>
-  <ul>
+  <ul class="flex flex-wrap gap-2">
     <li v-for="villa in props.data" :key="villa.id">
       <VillaItem
         :id="villa.id"
@@ -19,5 +19,3 @@ const props = defineProps<VillaListProps>();
     </li>
   </ul>
 </template>
-
-<style scoped></style>
