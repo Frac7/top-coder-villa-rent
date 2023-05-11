@@ -1,0 +1,21 @@
+<script setup lang="ts">
+import type { VillaListProps } from "@/types";
+import VillaItem from "./VillaItem.vue";
+
+const props = defineProps<VillaListProps>();
+</script>
+
+<template>
+  <ul class="flex flex-wrap gap-2">
+    <li v-for="villa in props.data" :key="villa.id">
+      <VillaItem
+        :id="villa.id"
+        :image="villa.image"
+        :location="villa.location"
+        :price="villa.price"
+        :capacity="villa.capacity"
+        :facilities="villa.facilities"
+      />
+    </li>
+  </ul>
+</template>
