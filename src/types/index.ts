@@ -1,19 +1,25 @@
-export type SearchFormParams = {
-  date?: string;
-  city?: string;
+export interface SearchFormParams {
+  location?: string;
   price?: number;
   capacity?: number;
-};
+  elements: number;
+}
 
-export type VillaItemProps = {
+type Sort = -1 | 0 | 1;
+export interface SortParams {
+  field?: string;
+  direction: Sort;
+}
+
+export interface VillaItemProps {
   id: number;
   image: string;
   location: string;
   price: number;
   capacity: number;
   facilities: string;
-};
+}
 
-export type VillaListProps = {
+export interface VillaListProps {
   villas: VillaItemProps[];
-};
+}
