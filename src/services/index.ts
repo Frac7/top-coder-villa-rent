@@ -1,5 +1,5 @@
-import type { SearchFormParams, SortParams, VillaListProps } from "@/types";
 import { villas } from "@/data";
+import type { SearchFormParams, SortParams, VillaListProps } from "@/types";
 
 export const getVillas = (
   searchFormParams: SearchFormParams,
@@ -9,7 +9,7 @@ export const getVillas = (
     const { location, price, capacity, elements } = searchFormParams;
     const { field, direction } = sortParams || {};
 
-    const result = villas.filter((villa) => {
+    const filtered = villas.filter((villa) => {
       const sameLocation = !location || villa.location === location;
       const samePrice = !price || villa.price === price;
       const sameCapacity = !capacity || villa.capacity === capacity;
@@ -17,17 +17,24 @@ export const getVillas = (
     });
 
     if (direction) {
-      result.sort((villaA, villaB) => {
+      filtered.sort((villaA, villaB) => {
         // @ts-ignore
-        const comparison = villaA[field].localeCompare(villaB[field]);
-        return direction * comparison;
+        if (villaA[field] > villaB[field]) {
+          return direction;
+        }
+        // @ts-ignore
+        if (villaA[field] < villaB[field]) {
+          return -direction;
+        }
+        return 0;
       });
     }
 
-    result.slice(0, elements);
+    const result = filtered.slice(0, elements);
 
     resolve({
-      villas: result,
+      data: result,
+      total: villas.length,
     });
   });
 };

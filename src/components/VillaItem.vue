@@ -30,7 +30,7 @@ const showDetail = () => {
         Servizi:
         {{ props.facilities }}
       </span>
-      <button>Prenota</button>
+      <!-- <button>Prenota</button> -->
     </div>
   </div>
 </template>

@@ -2,7 +2,7 @@ export const villas = [
   {
     id: 0,
     image: "https://picsum.photos/200",
-    capacity: parseInt((Math.random() * 6).toString()),
+    capacity: parseInt((1 + Math.random() * 5).toString()),
     price: parseFloat((100 + Math.random() * 900).toString()),
     facilities: "N/A",
     location: "Italy",
@@ -10,7 +10,7 @@ export const villas = [
   {
     id: 1,
     image: "https://picsum.photos/200",
-    capacity: parseInt((Math.random() * 6).toString()),
+    capacity: parseInt((1 + Math.random() * 5).toString()),
     price: parseFloat((100 + Math.random() * 900).toString()),
     facilities: "N/A",
     location: "Italy",
@@ -18,7 +18,7 @@ export const villas = [
   {
     id: 2,
     image: "https://picsum.photos/200",
-    capacity: parseInt((Math.random() * 6).toString()),
+    capacity: parseInt((1 + Math.random() * 5).toString()),
     price: parseFloat((100 + Math.random() * 900).toString()),
     facilities: "N/A",
     location: "Italy",
@@ -26,7 +26,7 @@ export const villas = [
   {
     id: 3,
     image: "https://picsum.photos/200",
-    capacity: parseInt((Math.random() * 6).toString()),
+    capacity: parseInt((1 + Math.random() * 5).toString()),
     price: parseFloat((100 + Math.random() * 900).toString()),
     facilities: "N/A",
     location: "Italy",
@@ -34,7 +34,7 @@ export const villas = [
   {
     id: 4,
     image: "https://picsum.photos/200",
-    capacity: parseInt((Math.random() * 6).toString()),
+    capacity: parseInt((1 + Math.random() * 5).toString()),
     price: parseFloat((100 + Math.random() * 900).toString()),
     facilities: "N/A",
     location: "Italy",
@@ -42,7 +42,7 @@ export const villas = [
   {
     id: 5,
     image: "https://picsum.photos/200",
-    capacity: parseInt((Math.random() * 6).toString()),
+    capacity: parseInt((1 + Math.random() * 5).toString()),
     price: parseFloat((100 + Math.random() * 900).toString()),
     facilities: "N/A",
     location: "Italy",
@@ -50,7 +50,7 @@ export const villas = [
   {
     id: 6,
     image: "https://picsum.photos/200",
-    capacity: parseInt((Math.random() * 6).toString()),
+    capacity: parseInt((1 + Math.random() * 5).toString()),
     price: parseFloat((100 + Math.random() * 900).toString()),
     facilities: "N/A",
     location: "Italy",
@@ -58,7 +58,7 @@ export const villas = [
   {
     id: 7,
     image: "https://picsum.photos/200",
-    capacity: parseInt((Math.random() * 6).toString()),
+    capacity: parseInt((1 + Math.random() * 5).toString()),
     price: parseFloat((100 + Math.random() * 900).toString()),
     facilities: "N/A",
     location: "Italy",
@@ -66,7 +66,7 @@ export const villas = [
   {
     id: 8,
     image: "https://picsum.photos/200",
-    capacity: parseInt((Math.random() * 6).toString()),
+    capacity: parseInt((1 + Math.random() * 5).toString()),
     price: parseFloat((100 + Math.random() * 900).toString()),
     facilities: "N/A",
     location: "Italy",
@@ -74,7 +74,7 @@ export const villas = [
   {
     id: 9,
     image: "https://picsum.photos/200",
-    capacity: parseInt((Math.random() * 6).toString()),
+    capacity: parseInt((1 + Math.random() * 5).toString()),
     price: parseFloat((100 + Math.random() * 900).toString()),
     facilities: "N/A",
     location: "Italy",
@@ -82,7 +82,7 @@ export const villas = [
   {
     id: 10,
     image: "https://picsum.photos/200",
-    capacity: parseInt((Math.random() * 6).toString()),
+    capacity: parseInt((1 + Math.random() * 5).toString()),
     price: parseFloat((100 + Math.random() * 900).toString()),
     facilities: "N/A",
     location: "Italy",
@@ -90,7 +90,7 @@ export const villas = [
   {
     id: 11,
     image: "https://picsum.photos/200",
-    capacity: parseInt((Math.random() * 6).toString()),
+    capacity: parseInt((1 + Math.random() * 5).toString()),
     price: parseFloat((100 + Math.random() * 900).toString()),
     facilities: "N/A",
     location: "Italy",
@@ -98,7 +98,7 @@ export const villas = [
   {
     id: 12,
     image: "https://picsum.photos/200",
-    capacity: parseInt((Math.random() * 6).toString()),
+    capacity: parseInt((1 + Math.random() * 5).toString()),
     price: parseFloat((100 + Math.random() * 900).toString()),
     facilities: "N/A",
     location: "Italy",
@@ -106,7 +106,7 @@ export const villas = [
   {
     id: 13,
     image: "https://picsum.photos/200",
-    capacity: parseInt((Math.random() * 6).toString()),
+    capacity: parseInt((1 + Math.random() * 5).toString()),
     price: parseFloat((100 + Math.random() * 900).toString()),
     facilities: "N/A",
     location: "Italy",
@@ -114,7 +114,7 @@ export const villas = [
   {
     id: 14,
     image: "https://picsum.photos/200",
-    capacity: parseInt((Math.random() * 6).toString()),
+    capacity: parseInt((1 + Math.random() * 5).toString()),
     price: parseFloat((100 + Math.random() * 900).toString()),
     facilities: "N/A",
     location: "Italy",

@@ -5,10 +5,11 @@ export interface SearchFormParams {
   elements: number;
 }
 
-type Sort = -1 | 0 | 1;
+export type Direction = -1 | 0 | 1;
+export type Field = "location" | "price" | "capacity";
 export interface SortParams {
-  field?: string;
-  direction: Sort;
+  field?: Field;
+  direction: Direction;
 }
 
 export interface VillaItemProps {
@@ -21,5 +22,6 @@ export interface VillaItemProps {
 }
 
 export interface VillaListProps {
-  villas: VillaItemProps[];
+  data: VillaItemProps[];
+  total: number;
 }

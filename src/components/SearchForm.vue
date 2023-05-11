@@ -1,23 +1,35 @@
 <script setup lang="ts">
-import type { SearchFormParams } from "@/types";
+import type { Direction, Field, SearchFormParams, SortParams } from "@/types";
 import { ref } from "vue";
 
 const emit = defineEmits<{
-  (event: "searchVillas", payload: SearchFormParams): void;
+  (
+    event: "searchVillas",
+    searchFormParams: SearchFormParams,
+    sortParams: SortParams
+  ): void;
 }>();
 
 const location = ref<string>("");
 const price = ref<number>(0);
 const capacity = ref<number>(0);
+
 const elements = ref<number>(5);
 
+const direction = ref<Direction>(0);
+const field = ref<Field | undefined>(undefined);
+
 const onSubmit = () => {
-  emit("searchVillas", {
-    location: location.value,
-    price: price.value,
-    capacity: capacity.value,
-    elements: elements.value,
-  });
+  emit(
+    "searchVillas",
+    {
+      location: location.value,
+      price: price.value,
+      capacity: capacity.value,
+      elements: elements.value,
+    },
+    { direction: direction.value, field: field.value }
+  );
 };
 </script>
 
@@ -37,6 +49,20 @@ const onSubmit = () => {
       <option :value="5">5</option>
       <option :value="10">10</option>
       <option :value="15">15</option>
+    </select>
+
+    <span>Ordinamento</span>
+    <label for="elements">Campo: </label>
+    <select id="elements" v-model="field">
+      <option value="location">Città</option>
+      <option value="price">Prezzo</option>
+      <option value="capacity">Capacità</option>
+    </select>
+    <label for="elements">Direzione: </label>
+    <select id="elements" v-model="direction">
+      <option :value="0">Nessuno</option>
+      <option :value="1">Crescente</option>
+      <option :value="-1">Decrescente</option>
     </select>
 
     <button type="submit">Cerca</button>
