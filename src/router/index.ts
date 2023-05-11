@@ -6,14 +6,14 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: "/",
-      name: "villas",
-      component: DisplayVillas,
-    },
-    {
       path: "/:id",
       name: "villa",
       component: VillaDetail,
+    },
+    {
+      path: "/",
+      name: "villas",
+      component: DisplayVillas,
     },
   ],
 });

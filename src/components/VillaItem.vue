@@ -30,7 +30,7 @@ const showDetail = () => {
         <b>Servizi:</b>
         {{ props.facilities }}
       </span>
-      <!-- <button>Prenota</button> -->
+      <!-- <button>Prenota</button> TODO: Handle modal -->
     </div>
   </div>
 </template>

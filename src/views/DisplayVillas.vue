@@ -36,7 +36,7 @@ onMounted(() => {
         villaStore.villaList.data.length === villaStore.villaList.total
       "
     >
-      Carica altro
-    </button>
+      Carica altro</button
+    ><!-- TODO: Handle search parameters -->
   </main>
 </template>
