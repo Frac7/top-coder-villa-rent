@@ -4,7 +4,7 @@ import type { VillaItemProps } from "@/types";
 const props = defineProps<VillaItemProps>();
 
 const showDetail = () => {
-  router.push(`/villas/${props.id}`);
+  router.push(`/${props.id}`);
 };
 </script>
 

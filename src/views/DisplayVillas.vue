@@ -23,7 +23,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <main>
+  <main class="flex flex-col w-3/6 m-auto">
     <SearchForm @searchVillas="onSearchVillas" />
     <VillaList
       :total="villaStore.villaList.total"
