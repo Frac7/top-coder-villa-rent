@@ -7,9 +7,9 @@ const props = defineProps<VillaItemProps>();
   <div>
     <img :src="props.image" />
     <div>
-      <span>Location: {{ props.location }}</span>
+      <span>Città: {{ props.location }}</span>
       <span>
-        Price:
+        Prezzo:
         {{
           Intl.NumberFormat("it-IT", {
             style: "currency",
@@ -18,11 +18,11 @@ const props = defineProps<VillaItemProps>();
         }}
       </span>
       <span>
-        Capacity:
+        Capacità:
         {{ props.capacity }}
       </span>
       <span>
-        Facilities:
+        Servizi:
         {{ props.facilities }}
       </span>
     </div>

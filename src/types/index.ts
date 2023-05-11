@@ -6,9 +6,14 @@ export type SearchFormParams = {
 };
 
 export type VillaItemProps = {
+  id: number;
   image: string;
   location: string;
   price: number;
   capacity: number;
   facilities: string;
+};
+
+export type VillaListProps = {
+  villas: VillaItemProps[];
 };
