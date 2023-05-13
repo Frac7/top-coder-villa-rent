@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import type { Direction, Field, SearchFormParams, SortParams } from "@/types";
 import { ref } from "vue";
+
+import type { Direction, Field, SearchFormParams, SortParams } from "@/types";
 
 const emit = defineEmits<{
   (
@@ -17,7 +18,7 @@ const capacity = ref<number>(0);
 const elements = ref<number>(5);
 
 const direction = ref<Direction>(0);
-const field = ref<Field | undefined>(undefined);
+const field = ref<Field>();
 
 const onSubmit = () => {
   emit(

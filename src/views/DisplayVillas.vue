@@ -1,14 +1,15 @@
 <script setup lang="ts">
+import { onMounted } from "vue";
+
 import SearchForm from "@/components/SearchForm.vue";
 import VillaList from "@/components/VillaList.vue";
-import { ELEMENT_OFFSET, INITIAL_ELEMENTS } from "@/constants";
+import { ELEMENT_OFFSET } from "@/constants";
 import { useVillaStore } from "@/stores/villa";
 import type { SearchFormParams, SortParams } from "@/types";
-import { onMounted } from "vue";
 
 const villaStore = useVillaStore();
 
-const onSearchVillas = (...params: [SearchFormParams, SortParams?]) =>
+const onSearchVillas = (...params: [SearchFormParams?, SortParams?]) =>
   villaStore.searchVillas(...params);
 
 const onLoadMore = () => {
@@ -18,7 +19,7 @@ const onLoadMore = () => {
 };
 
 onMounted(() => {
-  onSearchVillas({ elements: INITIAL_ELEMENTS });
+  onSearchVillas();
 });
 </script>
 
@@ -36,7 +37,7 @@ onMounted(() => {
         villaStore.villaList.data.length === villaStore.villaList.total
       "
     >
-      Carica altro</button
-    ><!-- TODO: Handle search parameters -->
+      Carica altro
+    </button>
   </main>
 </template>
