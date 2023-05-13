@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import router from "@/router";
 
-import type { VillaItem } from "@/types";
+import type { Villa } from "@/types";
 
 import BookVillaVue from "./BookVilla.vue";
 import VillaProperties from "./VillaProperties.vue";
 
-const props = defineProps<{ villa: VillaItem }>();
+const props = defineProps<{ villa: Villa }>();
 
 const onShowDetail = () => {
   router.push(`/${props.villa.id}`);
