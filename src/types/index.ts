@@ -23,7 +23,8 @@ export interface Villa {
   images: string[];
 }
 
-export interface VillaList {
+export interface Villas {
   data: Villa[];
   total: number;
+  size: number;
 }

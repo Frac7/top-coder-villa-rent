@@ -14,7 +14,7 @@ const onSearchVillas = (...params: [SearchFormParams?, Sort?]) =>
 
 const onLoadMore = () => {
   onSearchVillas({
-    elements: villaStore.villaList.size + ELEMENT_OFFSET,
+    elements: villaStore.villas.size + ELEMENT_OFFSET,
   });
 };
 
@@ -27,15 +27,13 @@ onMounted(() => {
   <main class="flex flex-col w-3/6 m-auto items-center">
     <SearchForm @searchVillas="onSearchVillas" />
     <VillaList
-      :total="villaStore.villaList.total"
-      :data="villaStore.villaList.data"
+      :total="villaStore.villas.total"
+      :data="villaStore.villas.data"
     />
     <button
       class="rounded-full disabled:bg-slate-300 bg-sky-700 text-white px-[1rem] pt-[0.25rem] pb-[0.5rem] text-xl m-[1rem]"
       @click="onLoadMore"
-      :disabled="
-        villaStore.villaList.data.length === villaStore.villaList.total
-      "
+      :disabled="villaStore.villas.data.length === villaStore.villas.total"
     >
       Carica altro
     </button>
