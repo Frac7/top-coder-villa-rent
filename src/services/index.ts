@@ -1,5 +1,14 @@
 import { villas } from "@/data";
-import type { SearchFormParams, SortParams, VillaListProps } from "@/types";
+import type {
+  SearchFormParams,
+  SortParams,
+  VillaItem,
+  VillaListProps,
+} from "@/types";
+
+export const getVillaById = (id: string): VillaItem | undefined => {
+  return villas.find((villa) => villa.id === id);
+};
 
 export const getVillas = (
   searchFormParams: SearchFormParams,

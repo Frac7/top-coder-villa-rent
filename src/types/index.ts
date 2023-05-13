@@ -12,16 +12,18 @@ export interface SortParams {
   direction: Direction;
 }
 
-export interface VillaItemProps {
-  id: number;
+export interface VillaItem {
+  id: string;
+  name: string;
   image: string;
   location: string;
   price: number;
   capacity: number;
   facilities: string;
+  images: string[];
 }
 
 export interface VillaListProps {
-  data: VillaItemProps[];
+  data: VillaItem[];
   total: number;
 }

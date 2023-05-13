@@ -1,42 +1,23 @@
 <script setup lang="ts">
 import router from "@/router";
 
-import type { VillaItemProps } from "@/types";
+import type { VillaItem } from "@/types";
 
-const props = defineProps<VillaItemProps>();
+import BookVillaVue from "./BookVilla.vue";
+import VillaProperties from "./VillaProperties.vue";
+
+const props = defineProps<{ villa: VillaItem }>();
 
 const onShowDetail = () => {
-  router.push(`/${props.id}`);
+  router.push(`/${props.villa.id}`);
 };
 </script>
 
 <template>
-  <div
-    @click="onShowDetail"
-    class="flex flex-col m-[1rem] hover:cursor-pointer"
-  >
-    <img width="200" :src="props.image" />
-    <div class="flex flex-col gap-1 text-center">
-      <span><b>Città:</b> {{ props.location }}</span>
-      <span>
-        <b>Prezzo:</b>
-        {{
-          Intl.NumberFormat("it-IT", {
-            style: "currency",
-            currency: "EUR",
-          }).format(props.price)
-        }}
-      </span>
-      <span>
-        <b>Capacità:</b>
-        {{ props.capacity }}
-      </span>
-      <span>
-        <b>Servizi:</b>
-        {{ props.facilities }}
-      </span>
-      <!-- <button>Prenota</button> TODO: Handle modal -->
-    </div>
+  <div class="flex flex-col m-[1rem] hover:cursor-pointer">
+    <img width="200" :src="villa.image" @click="onShowDetail" />
+    <VillaProperties :villa="villa" />
+    <BookVillaVue />
   </div>
 </template>
 
