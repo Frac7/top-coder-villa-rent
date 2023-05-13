@@ -12,7 +12,7 @@ export interface SortParams {
   direction: Direction;
 }
 
-export interface VillaItemProps {
+export interface VillaItem {
   id: string;
   name: string;
   image: string;
@@ -24,6 +24,6 @@ export interface VillaItemProps {
 }
 
 export interface VillaListProps {
-  data: VillaItemProps[];
+  data: VillaItem[];
   total: number;
 }

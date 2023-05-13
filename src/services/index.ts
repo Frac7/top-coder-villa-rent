@@ -2,11 +2,11 @@ import { villas } from "@/data";
 import type {
   SearchFormParams,
   SortParams,
-  VillaItemProps,
+  VillaItem,
   VillaListProps,
 } from "@/types";
 
-export const getVillaById = (id: string): VillaItemProps | undefined => {
+export const getVillaById = (id: string): VillaItem | undefined => {
   return villas.find((villa) => villa.id === id);
 };
 

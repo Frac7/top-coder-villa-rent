@@ -1,4 +1,4 @@
-import type { SearchFormParams, SortParams, VillaItemProps } from "@/types";
+import type { SearchFormParams, SortParams, VillaItem } from "@/types";
 import { getVillas as getVillaList } from "@/services";
 import { defineStore } from "pinia";
 import { ref } from "vue";
@@ -6,7 +6,7 @@ import { computed } from "vue";
 import { INITIAL_ELEMENTS } from "@/constants";
 
 export const useVillaStore = defineStore("villa", () => {
-  const villas = ref<VillaItemProps[]>([]);
+  const villas = ref<VillaItem[]>([]);
 
   const currentElements = ref<number>(0);
   const totalElements = ref<number>(0);

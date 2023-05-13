@@ -1,40 +1,23 @@
 <script setup lang="ts">
 import router from "@/router";
 
-import type { VillaItemProps } from "@/types";
-import BookVillaVue from "./BookVilla.vue";
+import type { VillaItem } from "@/types";
 
-const props = defineProps<VillaItemProps>();
+import BookVillaVue from "./BookVilla.vue";
+import VillaProperties from "./VillaProperties.vue";
+
+const props = defineProps<{ villa: VillaItem }>();
 
 const onShowDetail = () => {
-  router.push(`/${props.id}`);
+  router.push(`/${props.villa.id}`);
 };
 </script>
 
 <template>
   <div class="flex flex-col m-[1rem] hover:cursor-pointer">
-    <img width="200" :src="props.image" @click="onShowDetail" />
-    <div class="flex flex-col gap-1 text-center">
-      <span><b>Città:</b> {{ props.location }}</span>
-      <span>
-        <b>Prezzo:</b>
-        {{
-          Intl.NumberFormat("it-IT", {
-            style: "currency",
-            currency: "EUR",
-          }).format(props.price)
-        }}
-      </span>
-      <span>
-        <b>Capacità:</b>
-        {{ props.capacity }}
-      </span>
-      <span>
-        <b>Servizi:</b>
-        {{ props.facilities }}
-      </span>
-    </div>
-    <BookVillaVue :villa="props.id" />
+    <img width="200" :src="villa.image" @click="onShowDetail" />
+    <VillaProperties :villa="villa" />
+    <BookVillaVue :villa="villa.id" />
   </div>
 </template>
 

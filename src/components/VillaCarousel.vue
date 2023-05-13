@@ -26,7 +26,7 @@ const onNext = () => {
 <template>
   <div class="h-[500px] w-[500px] my-[1rem]">
     <img
-      :src="`${images[currentImage]}?q=${currentImage}`"
+      :src="`${images?.[currentImage]}?q=${currentImage}`"
       width="500"
       height="500"
     />
