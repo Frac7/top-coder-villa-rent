@@ -3,7 +3,7 @@ import { ref, onMounted } from "vue";
 import { useRoute } from "vue-router";
 
 import router from "@/router";
-import type { VillaItem } from "@/types";
+import type { Villa } from "@/types";
 import { getVillaById } from "@/services";
 
 import BookVilla from "@/components/BookVilla.vue";
@@ -13,7 +13,7 @@ import VillaProperties from "@/components/VillaProperties.vue";
 const route = useRoute();
 const id = route.params.id as string;
 
-const villa = ref<VillaItem>();
+const villa = ref<Villa>();
 onMounted(() => {
   villa.value = getVillaById(id);
 });

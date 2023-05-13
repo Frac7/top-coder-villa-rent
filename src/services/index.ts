@@ -1,19 +1,14 @@
 import { villas } from "@/data";
-import type {
-  SearchFormParams,
-  SortParams,
-  VillaItem,
-  VillaListProps,
-} from "@/types";
+import type { SearchForm, Sort, Villa, VillaList } from "@/types";
 
-export const getVillaById = (id: string): VillaItem | undefined => {
+export const getVillaById = (id: string): Villa | undefined => {
   return villas.find((villa) => villa.id === id);
 };
 
 export const getVillas = (
-  searchFormParams: SearchFormParams,
-  sortParams?: SortParams
-): Promise<VillaListProps> => {
+  searchFormParams: SearchForm,
+  sortParams?: Sort
+): Promise<VillaList> => {
   return new Promise((resolve) => {
     const { location, price, capacity, elements } = searchFormParams;
     const { field, direction } = sortParams || {};

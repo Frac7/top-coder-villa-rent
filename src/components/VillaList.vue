@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { VillaListProps } from "@/types";
+import type { VillaList } from "@/types";
 import VillaItem from "./VillaItem.vue";
 
-defineProps<VillaListProps>();
+defineProps<VillaList>();
 </script>
 
 <template>

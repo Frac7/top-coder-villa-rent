@@ -1,14 +1,10 @@
 <script setup lang="ts">
 import { ref } from "vue";
 
-import type { Direction, Field, SearchFormParams, SortParams } from "@/types";
+import type { Direction, Field, SearchForm, Sort } from "@/types";
 
 const emit = defineEmits<{
-  (
-    event: "searchVillas",
-    searchFormParams: SearchFormParams,
-    sortParams: SortParams
-  ): void;
+  (event: "searchVillas", searchFormParams: SearchForm, sortParams: Sort): void;
 }>();
 
 const location = ref<string>("");

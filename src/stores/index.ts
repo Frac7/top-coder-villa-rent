@@ -1,4 +1,4 @@
-import type { SearchFormParams, SortParams, VillaItem } from "@/types";
+import type { SearchForm, Sort, Villa } from "@/types";
 import { getVillas as getVillaList } from "@/services";
 import { defineStore } from "pinia";
 import { ref } from "vue";
@@ -6,20 +6,17 @@ import { computed } from "vue";
 import { INITIAL_ELEMENTS } from "@/constants";
 
 export const useVillaStore = defineStore("villa", () => {
-  const villas = ref<VillaItem[]>([]);
+  const villas = ref<Villa[]>([]);
 
   const currentElements = ref<number>(0);
   const totalElements = ref<number>(0);
 
-  const currentSearchParams = ref<SearchFormParams>({
+  const currentSearchParams = ref<SearchForm>({
     elements: INITIAL_ELEMENTS,
   });
-  const currentSortParams = ref<SortParams>();
+  const currentSortParams = ref<Sort>();
 
-  function updateParams(
-    searchParams?: SearchFormParams,
-    sortParams?: SortParams
-  ) {
+  function updateParams(searchParams?: SearchForm, sortParams?: Sort) {
     if (searchParams) {
       currentSearchParams.value = {
         ...currentSearchParams.value,
@@ -34,10 +31,7 @@ export const useVillaStore = defineStore("villa", () => {
     }
   }
 
-  async function searchVillas(
-    searchParams?: SearchFormParams,
-    sortParams?: SortParams
-  ) {
+  async function searchVillas(searchParams?: SearchForm, sortParams?: Sort) {
     updateParams(searchParams, sortParams);
 
     const villaList = await getVillaList(

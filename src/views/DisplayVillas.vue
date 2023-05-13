@@ -5,11 +5,11 @@ import SearchForm from "@/components/SearchForm.vue";
 import VillaList from "@/components/VillaList.vue";
 import { ELEMENT_OFFSET } from "@/constants";
 import { useVillaStore } from "@/stores";
-import type { SearchFormParams, SortParams } from "@/types";
+import type { SearchForm as SearchFormParams, Sort } from "@/types";
 
 const villaStore = useVillaStore();
 
-const onSearchVillas = (...params: [SearchFormParams?, SortParams?]) =>
+const onSearchVillas = (...params: [SearchFormParams?, Sort?]) =>
   villaStore.searchVillas(...params);
 
 const onLoadMore = () => {
