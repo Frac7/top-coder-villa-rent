@@ -11,7 +11,10 @@ const onShowDetail = () => {
 </script>
 
 <template>
-  <div @click="onShowDetail" class="flex flex-col m-[1rem]">
+  <div
+    @click="onShowDetail"
+    class="flex flex-col m-[1rem] hover:cursor-pointer"
+  >
     <img width="200" :src="props.image" />
     <div class="flex flex-col gap-1 text-center">
       <span><b>Città:</b> {{ props.location }}</span>
