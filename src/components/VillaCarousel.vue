@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, Transition } from "vue";
+import { ref } from "vue";
 
 const props = defineProps<{ images: string[] }>();
 const currentImage = ref(0);
