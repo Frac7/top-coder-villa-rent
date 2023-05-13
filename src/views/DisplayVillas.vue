@@ -4,7 +4,7 @@ import { onMounted } from "vue";
 import SearchForm from "@/components/SearchForm.vue";
 import VillaList from "@/components/VillaList.vue";
 import { ELEMENT_OFFSET } from "@/constants";
-import { useVillaStore } from "@/stores/villa";
+import { useVillaStore } from "@/stores";
 import type { SearchFormParams, SortParams } from "@/types";
 
 const villaStore = useVillaStore();
@@ -31,7 +31,7 @@ onMounted(() => {
       :data="villaStore.villaList.data"
     />
     <button
-      class="rounded-full disabled:bg-slate-300 bg-sky-700 text-white px-[1rem] pt-[0.25rem] pb-[0.5rem] text-xl m-[1rem] max-w-[12rem]"
+      class="rounded-full disabled:bg-slate-300 bg-sky-700 text-white px-[1rem] pt-[0.25rem] pb-[0.5rem] text-xl m-[1rem]"
       @click="onLoadMore"
       :disabled="
         villaStore.villaList.data.length === villaStore.villaList.total
