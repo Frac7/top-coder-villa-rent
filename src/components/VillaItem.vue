@@ -17,7 +17,7 @@ const onShowDetail = () => {
   <div class="flex flex-col m-[1rem] hover:cursor-pointer">
     <img width="200" :src="villa.image" @click="onShowDetail" />
     <VillaProperties :villa="villa" />
-    <BookVillaVue :villa="villa.id" />
+    <BookVillaVue />
   </div>
 </template>
 
