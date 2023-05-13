@@ -5,7 +5,7 @@ export const villas = [
     capacity: parseInt((1 + Math.random() * 5).toString()),
     price: parseFloat((100 + Math.random() * 900).toString()),
     facilities: "N/A",
-    location: "Italy",
+    location: "Italia",
   },
   {
     id: 1,
@@ -13,7 +13,7 @@ export const villas = [
     capacity: parseInt((1 + Math.random() * 5).toString()),
     price: parseFloat((100 + Math.random() * 900).toString()),
     facilities: "N/A",
-    location: "Italy",
+    location: "Italia",
   },
   {
     id: 2,
@@ -21,7 +21,7 @@ export const villas = [
     capacity: parseInt((1 + Math.random() * 5).toString()),
     price: parseFloat((100 + Math.random() * 900).toString()),
     facilities: "N/A",
-    location: "Italy",
+    location: "Italia",
   },
   {
     id: 3,
@@ -29,7 +29,7 @@ export const villas = [
     capacity: parseInt((1 + Math.random() * 5).toString()),
     price: parseFloat((100 + Math.random() * 900).toString()),
     facilities: "N/A",
-    location: "Italy",
+    location: "Italia",
   },
   {
     id: 4,
@@ -37,7 +37,7 @@ export const villas = [
     capacity: parseInt((1 + Math.random() * 5).toString()),
     price: parseFloat((100 + Math.random() * 900).toString()),
     facilities: "N/A",
-    location: "Italy",
+    location: "Italia",
   },
   {
     id: 5,
@@ -45,7 +45,7 @@ export const villas = [
     capacity: parseInt((1 + Math.random() * 5).toString()),
     price: parseFloat((100 + Math.random() * 900).toString()),
     facilities: "N/A",
-    location: "Italy",
+    location: "Italia",
   },
   {
     id: 6,
@@ -53,7 +53,7 @@ export const villas = [
     capacity: parseInt((1 + Math.random() * 5).toString()),
     price: parseFloat((100 + Math.random() * 900).toString()),
     facilities: "N/A",
-    location: "Italy",
+    location: "Italia",
   },
   {
     id: 7,
@@ -61,7 +61,7 @@ export const villas = [
     capacity: parseInt((1 + Math.random() * 5).toString()),
     price: parseFloat((100 + Math.random() * 900).toString()),
     facilities: "N/A",
-    location: "Italy",
+    location: "Italia",
   },
   {
     id: 8,
@@ -69,7 +69,7 @@ export const villas = [
     capacity: parseInt((1 + Math.random() * 5).toString()),
     price: parseFloat((100 + Math.random() * 900).toString()),
     facilities: "N/A",
-    location: "Italy",
+    location: "Italia",
   },
   {
     id: 9,
@@ -77,7 +77,7 @@ export const villas = [
     capacity: parseInt((1 + Math.random() * 5).toString()),
     price: parseFloat((100 + Math.random() * 900).toString()),
     facilities: "N/A",
-    location: "Italy",
+    location: "Italia",
   },
   {
     id: 10,
@@ -85,7 +85,7 @@ export const villas = [
     capacity: parseInt((1 + Math.random() * 5).toString()),
     price: parseFloat((100 + Math.random() * 900).toString()),
     facilities: "N/A",
-    location: "Italy",
+    location: "Italia",
   },
   {
     id: 11,
@@ -93,7 +93,7 @@ export const villas = [
     capacity: parseInt((1 + Math.random() * 5).toString()),
     price: parseFloat((100 + Math.random() * 900).toString()),
     facilities: "N/A",
-    location: "Italy",
+    location: "Italia",
   },
   {
     id: 12,
@@ -101,7 +101,7 @@ export const villas = [
     capacity: parseInt((1 + Math.random() * 5).toString()),
     price: parseFloat((100 + Math.random() * 900).toString()),
     facilities: "N/A",
-    location: "Italy",
+    location: "Italia",
   },
   {
     id: 13,
@@ -109,7 +109,7 @@ export const villas = [
     capacity: parseInt((1 + Math.random() * 5).toString()),
     price: parseFloat((100 + Math.random() * 900).toString()),
     facilities: "N/A",
-    location: "Italy",
+    location: "Italia",
   },
   {
     id: 14,
@@ -117,6 +117,6 @@ export const villas = [
     capacity: parseInt((1 + Math.random() * 5).toString()),
     price: parseFloat((100 + Math.random() * 900).toString()),
     facilities: "N/A",
-    location: "Italy",
+    location: "Italia",
   },
 ];

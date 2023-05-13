@@ -30,11 +30,12 @@ export const getVillas = (
       });
     }
 
-    const result = filtered.slice(0, elements);
+    const total = filtered.length;
+    const data = filtered.slice(0, elements);
 
     resolve({
-      data: result,
-      total: villas.length,
+      data,
+      total,
     });
   });
 };
