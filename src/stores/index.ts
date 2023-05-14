@@ -1,59 +1,84 @@
-import type { SearchFormParams, SortParams, VillaItem } from "@/types";
-import { getVillas as getVillaList } from "@/services";
 import { defineStore } from "pinia";
-import { ref } from "vue";
-import { computed } from "vue";
+
+import type { SearchForm, Sort, Villa, Villas } from "@/types";
+import { getVillas as getVillaList } from "@/services";
 import { INITIAL_ELEMENTS } from "@/constants";
 
-export const useVillaStore = defineStore("villa", () => {
-  const villas = ref<VillaItem[]>([]);
+interface VillaState {
+  data: Villa[];
+  total: number;
+  size: number;
+  sortParams: Sort;
+  searchParams: SearchForm;
+}
 
-  const currentElements = ref<number>(0);
-  const totalElements = ref<number>(0);
-
-  const currentSearchParams = ref<SearchFormParams>({
+const initialState: VillaState = {
+  data: [],
+  total: 0,
+  size: 0,
+  searchParams: {
+    location: "",
+    price: 0,
+    capacity: 0,
     elements: INITIAL_ELEMENTS,
-  });
-  const currentSortParams = ref<SortParams>();
+  },
+  sortParams: {
+    direction: 0,
+    field: "",
+  },
+};
 
-  function updateParams(
-    searchParams?: SearchFormParams,
-    sortParams?: SortParams
-  ) {
-    if (searchParams) {
-      currentSearchParams.value = {
-        ...currentSearchParams.value,
-        ...searchParams,
-      };
-    }
-    if (sortParams) {
-      currentSortParams.value = {
-        ...currentSortParams.value,
-        ...sortParams,
-      };
-    }
-  }
-
-  async function searchVillas(
-    searchParams?: SearchFormParams,
-    sortParams?: SortParams
-  ) {
-    updateParams(searchParams, sortParams);
-
-    const villaList = await getVillaList(
-      currentSearchParams.value,
-      currentSortParams.value
-    );
-    villas.value = villaList.data;
-    currentElements.value = villaList.data.length;
-    totalElements.value = villaList.total;
-  }
-
-  const villaList = computed(() => ({
-    data: villas.value,
-    total: totalElements.value,
-    size: currentElements.value,
-  }));
-
-  return { villas, currentElements, searchVillas, totalElements, villaList };
+export const useVillaStore = defineStore("villa", {
+  state: (): VillaState => {
+    const searchParams = Object.assign({}, initialState.searchParams);
+    const sortParams = Object.assign({}, initialState.sortParams);
+    return {
+      ...initialState,
+      searchParams,
+      sortParams,
+    };
+  },
+  getters: {
+    villas: (state: VillaState): Villas => ({
+      data: state.data,
+      total: state.total,
+      size: state.data.length,
+    }),
+    searchFilters: (state: VillaState): SearchForm => state.searchParams,
+    sortFilters: (state: VillaState): Sort => state.sortParams,
+  },
+  actions: {
+    updateParams: function (
+      newSearchParams?: SearchForm,
+      newSortParams?: Sort
+    ) {
+      if (newSearchParams) {
+        this.searchParams = {
+          ...this.searchParams,
+          ...newSearchParams,
+        };
+      }
+      if (newSortParams) {
+        this.sortParams = {
+          ...this.sortParams,
+          ...newSortParams,
+        };
+      }
+    },
+    searchVillas: function () {
+      const { data, total } = getVillaList(this.searchParams, this.sortParams);
+      this.data = data;
+      this.size = data.length;
+      this.total = total;
+    },
+    loadMore: function (offset: number) {
+      this.updateParams({ elements: this.searchParams.elements + offset });
+      this.searchVillas();
+    },
+    resetFilters: function () {
+      const newSearchParams = initialState.searchParams;
+      const newSortParams = initialState.sortParams;
+      this.updateParams(newSearchParams, newSortParams);
+    },
+  },
 });

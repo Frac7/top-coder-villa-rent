@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import type { VillaItem } from "@/types";
+import type { Villa } from "@/types";
 
-defineProps<{ villa: VillaItem }>();
+defineProps<{ villa: Villa }>();
 </script>
 
 <template>

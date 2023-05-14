@@ -5,39 +5,37 @@ import SearchForm from "@/components/SearchForm.vue";
 import VillaList from "@/components/VillaList.vue";
 import { ELEMENT_OFFSET } from "@/constants";
 import { useVillaStore } from "@/stores";
-import type { SearchFormParams, SortParams } from "@/types";
 
 const villaStore = useVillaStore();
-
-const onSearchVillas = (...params: [SearchFormParams?, SortParams?]) =>
-  villaStore.searchVillas(...params);
+const { searchVillas, loadMore } = villaStore;
 
 const onLoadMore = () => {
-  onSearchVillas({
-    elements: villaStore.villaList.size + ELEMENT_OFFSET,
-  });
+  loadMore(ELEMENT_OFFSET);
 };
 
 onMounted(() => {
-  onSearchVillas();
+  searchVillas();
 });
 </script>
 
 <template>
-  <main class="flex flex-col w-3/6 m-auto items-center">
-    <SearchForm @searchVillas="onSearchVillas" />
-    <VillaList
-      :total="villaStore.villaList.total"
-      :data="villaStore.villaList.data"
-    />
+  <main class="flex flex-col m-auto items-center">
+    <SearchForm @searchVillas="searchVillas" />
+    <VillaList />
     <button
       class="rounded-full disabled:bg-slate-300 bg-sky-700 text-white px-[1rem] pt-[0.25rem] pb-[0.5rem] text-xl m-[1rem]"
       @click="onLoadMore"
-      :disabled="
-        villaStore.villaList.data.length === villaStore.villaList.total
-      "
+      :disabled="villaStore.villas.data.length === villaStore.villas.total"
     >
       Carica altro
     </button>
   </main>
 </template>
+
+<style scoped>
+@media screen and (min-width: 1536px) {
+  main {
+    width: 50%;
+  }
+}
+</style>

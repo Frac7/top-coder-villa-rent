@@ -3,7 +3,7 @@ import { ref, onMounted } from "vue";
 import { useRoute } from "vue-router";
 
 import router from "@/router";
-import type { VillaItem } from "@/types";
+import type { Villa } from "@/types";
 import { getVillaById } from "@/services";
 
 import BookVilla from "@/components/BookVilla.vue";
@@ -13,7 +13,7 @@ import VillaProperties from "@/components/VillaProperties.vue";
 const route = useRoute();
 const id = route.params.id as string;
 
-const villa = ref<VillaItem>();
+const villa = ref<Villa>();
 onMounted(() => {
   villa.value = getVillaById(id);
 });
@@ -24,10 +24,10 @@ const onBack = () => {
 </script>
 
 <template>
-  <main class="flex flex-col w-3/6 m-auto items-center">
+  <main class="flex flex-col m-auto items-center">
     <button
       @click="onBack"
-      class="self-end rounded-full bg-sky-700 text-white px-[1rem] pt-[0.25rem] pb-[0.5rem] text-xl"
+      class="self-end rounded-full bg-sky-700 text-white px-[1rem] pt-[0.25rem] pb-[0.5rem] text-xl m-[1rem]"
     >
       Indietro
     </button>
@@ -36,3 +36,11 @@ const onBack = () => {
     <BookVilla />
   </main>
 </template>
+
+<style scoped>
+@media screen and (min-width: 1536px) {
+  main {
+    width: 50%;
+  }
+}
+</style>
