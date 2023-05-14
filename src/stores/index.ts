@@ -22,6 +22,7 @@ export const useVillaStore = defineStore("villa", {
     },
     sortParams: {
       direction: 0,
+      field: "",
     },
   }),
   getters: {
@@ -33,8 +34,8 @@ export const useVillaStore = defineStore("villa", {
     filters: (
       state: VillaState
     ): {
-      searchParams?: SearchForm;
-      sortParams?: Sort;
+      searchParams: SearchForm;
+      sortParams: Sort;
     } => ({
       searchParams: state.searchParams,
       sortParams: state.sortParams,
