@@ -5,27 +5,22 @@ import SearchForm from "@/components/SearchForm.vue";
 import VillaList from "@/components/VillaList.vue";
 import { ELEMENT_OFFSET } from "@/constants";
 import { useVillaStore } from "@/stores";
-import type { SearchForm as SearchFormParams, Sort } from "@/types";
 
 const villaStore = useVillaStore();
-
-const onSearchVillas = (...params: [SearchFormParams?, Sort?]) =>
-  villaStore.searchVillas(...params);
+const { searchVillas, loadMore } = villaStore;
 
 const onLoadMore = () => {
-  onSearchVillas({
-    elements: villaStore.villas.size + ELEMENT_OFFSET,
-  });
+  loadMore(ELEMENT_OFFSET);
 };
 
 onMounted(() => {
-  onSearchVillas();
+  searchVillas();
 });
 </script>
 
 <template>
-  <main class="flex flex-col w-3/6 m-auto items-center">
-    <SearchForm @searchVillas="onSearchVillas" />
+  <main class="flex flex-col m-auto items-center">
+    <SearchForm @searchVillas="searchVillas" />
     <VillaList
       :total="villaStore.villas.total"
       :data="villaStore.villas.data"
@@ -39,3 +34,11 @@ onMounted(() => {
     </button>
   </main>
 </template>
+
+<style scoped>
+@media screen and (min-width: 1536px) {
+  main {
+    width: 50%;
+  }
+}
+</style>

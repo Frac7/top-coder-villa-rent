@@ -1,32 +1,30 @@
 <script setup lang="ts">
 import { ref } from "vue";
 
-import type { Direction, Field, SearchForm, Sort } from "@/types";
+import type { SearchForm, Sort } from "@/types";
+import { useVillaStore } from "@/stores";
+import { INITIAL_ELEMENTS } from "@/constants";
 
 const emit = defineEmits<{
-  (event: "searchVillas", searchFormParams: SearchForm, sortParams: Sort): void;
+  (event: "searchVillas"): void;
 }>();
 
-const location = ref<string>("");
-const price = ref<number>(0);
-const capacity = ref<number>(0);
+const searchParams = ref<SearchForm>({
+  location: "",
+  price: 0,
+  capacity: 0,
+  elements: INITIAL_ELEMENTS,
+});
 
-const elements = ref<number>(5);
+const sortParams = ref<Sort>({
+  direction: 0,
+});
 
-const direction = ref<Direction>(0);
-const field = ref<Field>();
+const { updateParams } = useVillaStore();
 
 const onSubmit = () => {
-  emit(
-    "searchVillas",
-    {
-      location: location.value,
-      price: price.value,
-      capacity: capacity.value,
-      elements: elements.value,
-    },
-    { direction: direction.value, field: field.value }
-  );
+  updateParams(searchParams.value, sortParams.value);
+  emit("searchVillas");
 };
 </script>
 
@@ -36,42 +34,46 @@ const onSubmit = () => {
       <h1 class="text-xl text-sky-700">Filtri</h1>
     </div>
 
-    <div class="flex flex-col">
+    <div class="flex flex-col flex-1">
       <label for="location">Città: </label>
       <input
         class="border-b-[1px]"
         type="text"
         name="location"
         id="location"
-        v-model="location"
+        v-model="searchParams.location"
       />
     </div>
 
-    <div class="flex flex-col">
+    <div class="flex flex-col flex-1">
       <label for="price">Prezzo: </label>
       <input
         class="border-b-[1px]"
         type="number"
         name="price"
         id="price"
-        v-model="price"
+        v-model="searchParams.price"
       />
     </div>
 
-    <div class="flex flex-col">
+    <div class="flex flex-col flex-1">
       <label for="capacity">Capacità: </label>
       <input
         class="border-b-[1px]"
         type="number"
         name="capacity"
         id="capacity"
-        v-model="capacity"
+        v-model="searchParams.capacity"
       />
     </div>
 
-    <div class="flex flex-col">
+    <div class="flex flex-col flex-1">
       <label for="elements">Elementi: </label>
-      <select class="border-b-[1px]" id="elements" v-model="elements">
+      <select
+        class="border-b-[1px]"
+        id="elements"
+        v-model="searchParams.elements"
+      >
         <option :value="5">5</option>
         <option :value="10">10</option>
         <option :value="15">15</option>
@@ -84,7 +86,7 @@ const onSubmit = () => {
 
     <div class="flex flex-col flex-1">
       <label for="elements">Campo: </label>
-      <select class="border-b-[1px]" id="elements" v-model="field">
+      <select class="border-b-[1px]" id="elements" v-model="sortParams.field">
         <option value="location">Città</option>
         <option value="price">Prezzo</option>
         <option value="capacity">Capacità</option>
@@ -93,7 +95,11 @@ const onSubmit = () => {
 
     <div class="flex flex-col flex-1">
       <label for="elements">Direzione: </label>
-      <select class="border-b-[1px]" id="elements" v-model="direction">
+      <select
+        class="border-b-[1px]"
+        id="elements"
+        v-model="sortParams.direction"
+      >
         <option :value="0">Nessuno</option>
         <option :value="1">Crescente</option>
         <option :value="-1">Decrescente</option>

@@ -58,16 +58,15 @@ export const useVillaStore = defineStore("villa", {
         };
       }
     },
-    searchVillas: function (
-      newSearchParams?: SearchForm,
-      newSortParams?: Sort
-    ) {
-      this.updateParams(newSearchParams, newSortParams);
-
+    searchVillas: function () {
       const { data, total } = getVillaList(this.searchParams, this.sortParams);
       this.data = data;
       this.size = data.length;
       this.total = total;
+    },
+    loadMore: function (offset: number) {
+      this.updateParams({ elements: this.size + offset });
+      this.searchVillas();
     },
   },
 });
