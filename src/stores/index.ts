@@ -12,34 +12,40 @@ interface VillaState {
   searchParams: SearchForm;
 }
 
+const initialState: VillaState = {
+  data: [],
+  total: 0,
+  size: 0,
+  searchParams: {
+    location: "",
+    price: 0,
+    capacity: 0,
+    elements: INITIAL_ELEMENTS,
+  },
+  sortParams: {
+    direction: 0,
+    field: "",
+  },
+};
+
 export const useVillaStore = defineStore("villa", {
-  state: (): VillaState => ({
-    data: [],
-    total: 0,
-    size: 0,
-    searchParams: {
-      elements: INITIAL_ELEMENTS,
-    },
-    sortParams: {
-      direction: 0,
-      field: "",
-    },
-  }),
+  state: (): VillaState => {
+    const searchParams = Object.assign({}, initialState.searchParams);
+    const sortParams = Object.assign({}, initialState.sortParams);
+    return {
+      ...initialState,
+      searchParams,
+      sortParams,
+    };
+  },
   getters: {
     villas: (state: VillaState): Villas => ({
       data: state.data,
       total: state.total,
       size: state.data.length,
     }),
-    filters: (
-      state: VillaState
-    ): {
-      searchParams: SearchForm;
-      sortParams: Sort;
-    } => ({
-      searchParams: state.searchParams,
-      sortParams: state.sortParams,
-    }),
+    searchFilters: (state: VillaState): SearchForm => state.searchParams,
+    sortFilters: (state: VillaState): Sort => state.sortParams,
   },
   actions: {
     updateParams: function (
@@ -66,8 +72,13 @@ export const useVillaStore = defineStore("villa", {
       this.total = total;
     },
     loadMore: function (offset: number) {
-      this.updateParams({ elements: this.size + offset });
+      this.updateParams({ elements: this.searchParams.elements + offset });
       this.searchVillas();
+    },
+    resetFilters: function () {
+      const newSearchParams = initialState.searchParams;
+      const newSortParams = initialState.sortParams;
+      this.updateParams(newSearchParams, newSortParams);
     },
   },
 });

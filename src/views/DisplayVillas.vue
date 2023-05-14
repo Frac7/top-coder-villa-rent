@@ -21,10 +21,7 @@ onMounted(() => {
 <template>
   <main class="flex flex-col m-auto items-center">
     <SearchForm @searchVillas="searchVillas" />
-    <VillaList
-      :total="villaStore.villas.total"
-      :data="villaStore.villas.data"
-    />
+    <VillaList />
     <button
       class="rounded-full disabled:bg-slate-300 bg-sky-700 text-white px-[1rem] pt-[0.25rem] pb-[0.5rem] text-xl m-[1rem]"
       @click="onLoadMore"

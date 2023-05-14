@@ -3,7 +3,7 @@ import { useVillaStore } from "@/stores";
 import { storeToRefs } from "pinia";
 
 const villaStore = useVillaStore();
-const { filters } = storeToRefs(villaStore);
+const { sortFilters } = storeToRefs(villaStore);
 </script>
 
 <template>
@@ -13,11 +13,7 @@ const { filters } = storeToRefs(villaStore);
 
   <div class="flex flex-col flex-1">
     <label for="elements">Campo: </label>
-    <select
-      class="border-b-[1px]"
-      id="elements"
-      v-model="filters.sortParams.field"
-    >
+    <select class="border-b-[1px]" id="elements" v-model="sortFilters.field">
       <option :value="''"></option>
       <option value="location">Città</option>
       <option value="price">Prezzo</option>
@@ -30,7 +26,7 @@ const { filters } = storeToRefs(villaStore);
     <select
       class="border-b-[1px]"
       id="elements"
-      v-model="filters.sortParams.direction"
+      v-model="sortFilters.direction"
     >
       <option :value="0"></option>
       <option :value="1">Crescente</option>

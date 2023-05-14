@@ -3,7 +3,7 @@ import { useVillaStore } from "@/stores";
 import { storeToRefs } from "pinia";
 
 const villaStore = useVillaStore();
-const { filters } = storeToRefs(villaStore);
+const { searchFilters } = storeToRefs(villaStore);
 </script>
 
 <template>
@@ -18,7 +18,7 @@ const { filters } = storeToRefs(villaStore);
       type="text"
       name="location"
       id="location"
-      v-model="filters.searchParams.location"
+      v-model="searchFilters.location"
     />
   </div>
 
@@ -29,7 +29,7 @@ const { filters } = storeToRefs(villaStore);
       type="number"
       name="price"
       id="price"
-      v-model="filters.searchParams.price"
+      v-model="searchFilters.price"
     />
   </div>
 
@@ -40,7 +40,7 @@ const { filters } = storeToRefs(villaStore);
       type="number"
       name="capacity"
       id="capacity"
-      v-model="filters.searchParams.capacity"
+      v-model="searchFilters.capacity"
     />
   </div>
 
@@ -49,7 +49,7 @@ const { filters } = storeToRefs(villaStore);
     <select
       class="border-b-[1px]"
       id="elements"
-      v-model="filters.searchParams.elements"
+      v-model="searchFilters.elements"
     >
       <option :value="5">5</option>
       <option :value="10">10</option>

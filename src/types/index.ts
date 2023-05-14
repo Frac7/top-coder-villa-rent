@@ -8,7 +8,7 @@ export interface SearchForm {
 export type Direction = -1 | 0 | 1;
 export type Field = "" | "location" | "price" | "capacity";
 export interface Sort {
-  field?: Field;
+  field: Field;
   direction: Direction;
 }
 
