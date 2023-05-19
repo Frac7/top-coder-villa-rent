@@ -1,26 +1,8 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { useCarousel } from "@/utils/useCarousel";
 
 const props = defineProps<{ images: string[] }>();
-const currentImage = ref(0);
-
-const interval = setInterval(() => {
-  currentImage.value =
-    currentImage.value + 1 === props.images.length ? 0 : currentImage.value + 1;
-}, 5000);
-
-const onPrevious = () => {
-  clearInterval(interval);
-  currentImage.value =
-    currentImage.value - 1 < 0
-      ? props.images.length - 1
-      : currentImage.value - 1;
-};
-const onNext = () => {
-  clearInterval(interval);
-  currentImage.value =
-    currentImage.value + 1 === props.images.length ? 0 : currentImage.value + 1;
-};
+const { currentImage, onPrevious, onNext } = useCarousel(props);
 </script>
 
 <template>
